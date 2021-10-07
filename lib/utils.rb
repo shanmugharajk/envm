@@ -25,10 +25,6 @@ def set_path(lang, version)
   ENV['PATH'] = "#{exe_path}:#{envs.uniq.join(':')}"
 end
 
-def init_shell_session
-  Kernel.exec(ENV['SHELL'])
-end
-
 def global_config_path(lang)
   "#{ENV['ENVM_ROOT']}/.#{lang}_version"
 end
