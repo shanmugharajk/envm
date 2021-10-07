@@ -53,8 +53,7 @@ def init
     config = read_local_config(lang) || read_global_config(lang)
     set_path(lang, config)
   end
-
-  init_shell_session
+  puts ENV['PATH']
 end
 
 def list(lang)
@@ -65,25 +64,27 @@ def list(lang)
 
   root_path = "#{ENVM_ROOT}/#{lang}/versions"
   versions = Dir.entries(root_path).reject { |file| File.directory?(file) || file == '.DS_Store' }
-  puts "\nThe available versions are \n#{versions.join("\n")} \n "
+  puts "The available versions are \n#{versions.join("\n")} \n "
 end
 
 def set_global_version(lang, version)
   if blank?(lang) || blank?(version)
     puts "Please enter language, version eg.\n $ envm global node <version>."
+    exit 1
   else
     File.write(global_config_path(version), version)
     set_path(lang, version)
-    init_shell_session
+    puts ENV['PATH']
   end
 end
 
 def use_version(lang, version)
   if blank?(lang) || blank?(version)
     puts "Please enter language, version eg.\n $ envm local node <version>."
+    exit 1
   else
     set_path(lang, version)
-    init_shell_session
+    puts ENV['PATH']
   end
 end
 
@@ -93,8 +94,9 @@ def use_local_version(lang)
   if blank?(config)
     puts 'No local configuration files exists in the current directory.'
     puts 'Create a file of format .<lang>_version and put the version in it.'
+    exit 1
   else
     set_path(lang, config)
-    init_shell_session
+    puts ENV['PATH']
   end
 end

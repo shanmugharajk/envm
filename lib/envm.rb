@@ -2,18 +2,19 @@
 
 require_relative 'utils'
 
-INVALID_COMMAND_MSG = "\nYou've entered an invalid command. Please run the following to check all available commands
+INVALID_COMMAND_MSG = "You've entered an invalid command. Please run the following to check all available commands
 $ envm help
 "
 
-LIST_OF_COMMANDS = "\nThe list of supported commands are => envm <lang> list, eg.
+LIST_OF_COMMANDS = 'The list of supported commands are => envm <lang> list, eg.
 
 envm list node                 -   Lists all the node versions installed
 envm global node <version>     -   Sets the <version> globally
 envm use node <version>        -   Sets the <version> locally
-"
 
-ENV_INVALID_MSG = "\nPlease set the env variables LANGS, ENVM_ROOT as follows
+'
+
+ENV_INVALID_MSG = "Please set the env variables LANGS, ENVM_ROOT as follows
 $ export LANGS='node ruby'
 $ export ENVM_ROOT=<root path where envm the version folders are present>
 The folder structure should be like below
