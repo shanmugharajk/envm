@@ -1,0 +1,8 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  DisplayCopNames: false
+  # enable all pending rubocops
+  NewCops: enable
+
+Metrics/MethodLength:
+  Max: 25
